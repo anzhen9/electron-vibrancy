@@ -1,0 +1,26 @@
+{
+  "name": "electron-vibrancy",
+  "version": "1.0.0",
+  "description": "Enable blurring the back of your transparent BrowserWindow using this simple module.",
+  "main": "index.js",
+  "devDependencies": {
+    "electron": "^15.3.5",
+    "node-pre-gyp": "^0.10.1-dev.1"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "lru-cache": "^7.14.1",
+    "nan": "^2.15.0",
+    "node-gyp": "^9.0.0"
+  },
+  "os": [
+    "win32"
+  ],
+  "scripts": {
+    "lint-cpp": "python scripts/lint.py",
+    "rebuild": "node-gyp rebuild --target=15.3.5 --runtime=electron --arch=x64 --release --dist-url=https://electronjs.org/headers",
+    "build": "node-gyp build --target=15.3.5 --runtime=electron --arch=x64 --release --dist-url=https://electronjs.org/headers",
+    "conf": "node-gyp configure --arch=x64",
+    "postinstall": "npm run rebuild"
+  }
+}
